@@ -1,0 +1,248 @@
+/* Global Styles */
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    height: 100%;
+    color: white;
+    overflow-x: auto; /* Hide horizontal overflow */
+    overflow-y: auto; /* Ensure vertical scrollbar is always visible */
+    background: #000; /* Default black background */
+    animation: pulse-background 6s infinite; /* Pulsing background effect */
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* Container for main content */
+.container {
+    max-width: 900px;
+    margin: auto;
+    padding: 40px 20px;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Heading Styles */
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: #e8dfe0;
+}
+
+/* Video Container */
+.video-container {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 30px;
+    box-shadow: 0px 0px 20px rgba(33, 150, 243, 0.5);
+    z-index: 1;
+}
+
+/* Video Feed */
+#video_feed {
+    width: 640px;
+    height: 480px;
+    display: block;
+    z-index: 1;
+}
+
+/* Live Emotion Display */
+#live-result {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #f8f7f4;
+    margin-top: 20px;
+}
+
+/* Grainy Dots Effect - Floating Background */
+.grain-dots {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: 0; /* Move the dots behind the video */
+}
+
+.grain-dots span {
+    position: absolute;
+    width: 5px;  /* Reduced dot size */
+    height: 5px; /* Reduced dot size */
+    background-color: white;
+    opacity: 0.2;  /* Lower opacity for an airy effect */
+    border-radius: 50%;
+    animation: float-dots 25s linear infinite, grain-flicker 3s infinite ease-in-out;
+}
+
+/* Random Dot Positioning - Avoid Single Line */
+.grain-dots span:nth-child(1) { animation-delay: 0s; }
+.grain-dots span:nth-child(2) { animation-delay: 1s; }
+.grain-dots span:nth-child(3) { animation-delay: 2s; }
+.grain-dots span:nth-child(4) { animation-delay: 3s; }
+.grain-dots span:nth-child(5) { animation-delay: 4s; }
+.grain-dots span:nth-child(6) { animation-delay: 5s; }
+.grain-dots span:nth-child(7) { animation-delay: 6s; }
+.grain-dots span:nth-child(8) { animation-delay: 7s; }
+.grain-dots span:nth-child(9) { animation-delay: 8s; }
+.grain-dots span:nth-child(10) { animation-delay: 9s; }
+
+/* Floating Effect (Slow Random Movement) */
+@keyframes float-dots {
+    0% { top: 10%; left: 10%; }
+    25% { top: 30%; left: 20%; }
+    50% { top: 50%; left: 40%; }
+    75% { top: 70%; left: 60%; }
+    100% { top: 90%; left: 80%; }
+}
+
+/* Grain Flicker Animation */
+@keyframes grain-flicker {
+    0% { transform: scale(0.5); opacity: 0.3; }
+    50% { transform: scale(1); opacity: 0.8; }
+    100% { transform: scale(0.5); opacity: 0.3; }
+}
+
+/* Pulsing Background Effect */
+@keyframes pulse-background {
+    0% { background: #000; }
+    50% { background: #1a1a1a; }  /* Light black (greyish) */
+    100% { background: #000; }
+}
+
+/* Separator Line Between Sections */
+.separator-line {
+    width: 100%;
+    height: 2px;
+    background-color: #ff4b5c;
+    margin: 30px 0;
+}
+
+/* Upload Section */
+.upload-form-wrapper {
+    margin-top: 50px;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    border: 2px dashed #ff4b5c;
+    display: inline-block;
+    box-shadow: 0px 0px 15px rgba(255, 75, 92, 0.5);
+    z-index: 1;
+    width: 100%;  /* Ensure full width */
+    max-width: 400px;  /* Limit max-width */
+}
+
+.upload-form-wrapper h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+/* File Input Styles */
+input[type="file"] {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    width: 250px;
+}
+
+input[type="file"]:hover {
+    background-color: #f2f2f2;
+}
+
+/* Image Preview Styles */
+#image-preview {
+    margin-top: 20px;
+    border: 2px solid #fff;
+    border-radius: 10px;
+    max-width: 300px;
+    height: auto;
+    display: none;
+}
+
+/* Submit Button */
+button[type="submit"] {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #000; /* Thick black background */
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    font-weight: bold; /* Make button text bold */
+}
+
+button[type="submit"]:hover {
+    background-color: #2196f3;
+}
+
+/* Uploaded Image Section */
+.upload-section {
+    margin-top: 50px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    box-shadow: 0px 0px 15px rgba(33, 150, 243, 0.5);
+}
+
+.upload-section img {
+    border: 2px solid #fff;
+    border-radius: 8px;
+    max-width: 100%;
+    height: auto;
+}
+
+#upload-result {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #e1e0da;
+    margin-top: 15px;
+}
+
+/* Adjustments for mobile and small screens */
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    #video_feed {
+        width: 100%;
+        height: auto;
+    }
+
+    /* Upload Section */
+    .upload-form-wrapper {
+        width: 100%;
+        padding: 15px;
+    }
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #ff4b5c;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #333;
+}
+
+/* Focus state for buttons and inputs */
+button[type="submit"]:focus, input[type="file"]:focus {
+    outline: 2px solid #ff4b5c;
+    outline-offset: 2px;
+}
